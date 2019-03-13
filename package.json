@@ -4,7 +4,7 @@
   "description": "week 2 project with Rohan, Ryan, Joko &amp; Dylan",
   "main": "dom.js",
   "scripts": {
-    "test": "node test.js | tap-spec",
+    "test": "nodemon test.js | tap-spec",
     "coverage": "nyc istanbul cover ./test.js"
   },
   "repository": {
@@ -20,6 +20,7 @@
   "homepage": "https://github.com/FAC-Sixteen/week2-project-RRJD#readme",
   "devDependencies": {
     "istanbul": "^0.4.5",
+    "nodemon": "^1.18.10",
     "nyc": "^13.3.0",
     "tap-spec": "^5.0.0",
     "tape": "^4.10.1"
