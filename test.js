@@ -21,8 +21,8 @@ test('deleteTodo should not edit array todo', function(t) {
 });
 
 test('deleteTodo removes an item', function(t) {
-  let actual = logic.deleteTodo(['test', 'testing', 'length'], 'testing');
-  let expected = ['test', 'testing', 'length'];
+  let actual = logic.deleteTodo([{'id':'test'}, {'id':'testing'}, {'id':'length'}], 'testing');
+  let expected = [{'id':'test'}, {'id':'testing'}, {'id':'length'}];
   t.notEqual(actual.length, expected.length, 'should remove at least one element from actual');
   t.end();
 });
@@ -43,8 +43,8 @@ test('deleteTodo should be able to return without anything being deleted', funct
 })
 
 test('deleteTodo should delete correct item from array', function(t) {
-  let actual = logic.deleteTodo(['test', 'testing', 'deleting'], 'testing');
-  let expected = ['test', 'deleting'];
+  let actual = logic.deleteTodo([{'id':'test'}, {'id':'testing'}, {'id':'deleting'}], 'testing');
+  let expected = [{'id':'test'}, {'id':'deleting'}];
   t.deepEqual(actual, expected, 'when given array and thing to delete, should delete correct item');
   t.end();
 })
@@ -56,11 +56,10 @@ t.equals(actual, expected, 'when given number return error');
 t.end();
 })
 
-test('deleteTodo should delete all matching', function(t) {
-  let a = ['delete', 'something', 'delete', 'many', 'delete', 'all']
-  let actual = logic.deleteTodo(a, 'delete');
-  let expected = ['something', 'many', 'all'];
-  t.deepEqual(actual, expected, 'should delete all instances of word delete');
+test('deleteTodo accesses object id inside array and deletes correct item', function(t) {
+  let a = [{'id': 'test'}, {'id': 'testing'}];
+  let actual = logic.deleteTodo(a, 'test');
+  let expected = [{'id': 'testing'}];
+  t.deepEqual(actual, expected, 'should delete correct object when given id');
   t.end();
 })
-
