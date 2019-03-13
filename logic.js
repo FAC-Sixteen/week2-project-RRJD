@@ -30,6 +30,14 @@ var todoFunctions = {
     // hint: array.concat
   },
   deleteTodo: function(todos, idToDelete) {
+    if (todos.length == 0) {
+      return 'error: cannot handle empty array';
+    }
+    let array = this.cloneArrayOfObjects(todos);
+
+    return array.splice();
+
+
     // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
     // return a new array, this should not contain any todo with an id of idToDelete
     // hint: array.filter
