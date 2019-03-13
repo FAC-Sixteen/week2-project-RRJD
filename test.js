@@ -6,6 +6,9 @@ test('Example test', function(t) {
   t.end();
 });
 
+
+// <------------- DELETETODO ----------------->
+
 test('deleteTodo returns an array', function(t) {
   let actual = Array.isArray(logic.deleteTodo(['test', 'testing']));
   t.equals(actual, true, 'deleteTodo should return an array');
@@ -63,3 +66,18 @@ test('deleteTodo accesses object id inside array and deletes correct item', func
   t.deepEqual(actual, expected, 'should delete correct object when given id');
   t.end();
 })
+
+
+// <-----------------MARKTODO----------------->
+
+let  testArray = [{'id': 'test', 'done': false}, {'id': 'testing', 'done': false}, {'id': 'testoo', 'done': true}];
+
+test('markTodo does not change argument todo', function(t) {
+  logic.markTodo(testArray, 'test')
+  let actual = [...testArray];
+  let expected = [{'id': 'test', 'done': false}, {'id': 'testing', 'done': false}, {'id': 'testoo', 'done': true}];
+  t.deepEqual(actual, expected, 'testArray should not be changed by markTodo');
+  t.end();
+});
+
+// test('markTodo does  ')
