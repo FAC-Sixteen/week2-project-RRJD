@@ -4,8 +4,9 @@
   "description": "week 2 project with Rohan, Ryan, Joko &amp; Dylan",
   "main": "dom.js",
   "scripts": {
-    "test": "nodemon test.js | tap-spec",
-    "coverage": "nyc istanbul cover ./test.js"
+    "test": "node test.js | tap-spec",
+    "coverage": "nyc istanbul cover ./test.js",
+    "nodemon": "nodemon test.js | tap-spec"
   },
   "repository": {
     "type": "git",
