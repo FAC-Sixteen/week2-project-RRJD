@@ -1,0 +1,27 @@
+{
+  "name": "week2-project-RRJD",
+  "version": "1.0.0",
+  "description": "week 2 project with Rohan, Ryan, Joko &amp; Dylan",
+  "main": "dom.js",
+  "scripts": {
+    "test": "node test.js | tap-spec",
+    "coverage": "istanbul cover ./test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FAC-Sixteen/week2-project-RRJD.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FAC-Sixteen/week2-project-RRJD/issues"
+  },
+  "homepage": "https://github.com/FAC-Sixteen/week2-project-RRJD#readme",
+  "devDependencies": {
+    "istanbul": "^0.4.5",
+    "nyc": "^13.3.0",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.10.1"
+  }
+}
