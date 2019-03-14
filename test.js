@@ -16,8 +16,6 @@ const dummyNewTodo = {
   description: 'make smoothie out of things that should really be cooked'
 };
 
-
-
 test('Make sure Tape is working', function (t) {
   t.equal(1, 1, "1 should equal 1");
   t.end();
@@ -138,5 +136,113 @@ test('deleteTodo accesses object id inside array and deletes correct item', func
     'id': 'testing'
   }];
   t.deepEqual(actual, expected, 'should delete correct object when given id');
+  t.end();
+})
+
+
+// <-----------------MARKTODO----------------->
+
+let testArray = [{
+    'id': 'test',
+    'done': false
+  },
+  {
+    'id': 'testing',
+    'done': false
+  },
+  {
+    'id': 'testoo',
+    'done': true
+  }
+];
+
+test('markTodo does not change argument todo', function (t) {
+  logic.markTodo(testArray, 'test')
+  let actual = [...testArray];
+  let expected = [{
+    'id': 'test',
+    'done': false
+  }, {
+    'id': 'testing',
+    'done': false
+  }, {
+    'id': 'testoo',
+    'done': true
+  }];
+  t.deepEqual(actual, expected, 'testArray should not be changed by markTodo');
+  t.end();
+});
+
+test('markTodo returns an array', function (t) {
+  let actual = Array.isArray(logic.markTodo(testArray));
+  t.equals(actual, true, 'markTodo should return an array');
+  t.end();
+})
+
+test('markTodo returns an array of objects', function (t) {
+  let a = logic.markTodo(testArray);
+  let actual = typeof a[0] === 'object';
+  let expected = true;
+  t.equals(actual, expected, 'markTodo should return an array of objects');
+  t.end();
+})
+
+test('markTodo should edit the array of objects', function (t) {
+  let actual = logic.markTodo(testArray, 'testing');
+  let expected = [...testArray];
+  t.notDeepEqual(actual, expected, 'markTodo should edit the array of objects');
+  t.end();
+})
+
+test('markTodo should return an object with same ids', function (t) {
+  let a = logic.markTodo(testArray);
+  let actual = [a[0].id, a[1].id, a[2].id];
+  let expected = ['test', 'testing', 'testoo'];
+  t.deepEqual(actual, expected, 'markTodo should return an object with same ids');
+  t.end();
+})
+
+test('markTodo should change the done status of the given id to true', function (t) {
+  let actual = logic.markTodo(testArray, 'testing');
+  let expected = [{
+      'id': 'test',
+      'done': false
+    },
+    {
+      'id': 'testing',
+      'done': true
+    },
+    {
+      'id': 'testoo',
+      'done': true
+    }
+  ];
+  t.deepEqual(actual, expected, 'should change the value of done on id testing to true');
+  t.end();
+})
+
+test('markTodo should change the done status of the given id to false', function (t) {
+  let actual = logic.markTodo(testArray, 'testoo');
+  let expected = [{
+      'id': 'test',
+      'done': false
+    },
+    {
+      'id': 'testing',
+      'done': false
+    },
+    {
+      'id': 'testoo',
+      'done': false
+    }
+  ];
+  t.deepEqual(actual, expected, 'should change the done status of the given id to false');
+  t.end();
+})
+
+test('markTodo should return error', function (t) {
+  let actual = logic.markTodo('give me an error');
+  let expected = 'error';
+  t.equals(actual, expected, 'when given non array return error');
   t.end();
 })
