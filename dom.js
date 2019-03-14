@@ -7,9 +7,9 @@
   var addTodoForm = document.getElementById('add-todo');
 
   var state = [
-    { id: -3, description: 'first todo' },
-    { id: -2, description: 'second todo' },
-    { id: -1, description: 'third todo' },
+    { id: -3, description: 'first todo', done: false },
+    { id: -2, description: 'second todo', done: false },
+    { id: -1, description: 'third todo', done: false },
   ]; // this is our initial todoList
 
   // This function takes a todo, it returns the DOM node representing that todo
@@ -29,12 +29,23 @@
 
     // add markTodo button
     var markTodoButtonNode = document.createElement('button');
+    markTodoButtonNode.classList.add("todoButton");
+    markTodoButtonNode.setAttribute('id', todo.id)
     markTodoButtonNode.addEventListener('click', function(event) {
       var newState = todoFunctions.markTodo(state, todo.id);
       update(newState);
+      setActive(newState, todo.id);
     });
     todoNode.appendChild(markTodoButtonNode);
     // add classes for css
+    function setActive(todo) {
+      todo.map(function (a) {
+        let el = document.getElementById(a.id);
+        if (a.done === true) {
+          el.classList.add('todoButtonActive');
+        }
+      })
+    }
 
     return todoNode;
   };
