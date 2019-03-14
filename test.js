@@ -25,7 +25,7 @@ test('Make sure Tape is working', function(t) {
 });
 
 test('Test whether addTodo returns an array', function(t) {
-  const actual = Array.isArray(logic.addTodo([]));
+  const actual = Array.isArray(logic.addTodo(dummyTodos, dummyNewTodo));
   const expected = true;
   t.deepEqual(actual,expected,"addTodo returns an array");
   t.end();
