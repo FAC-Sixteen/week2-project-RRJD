@@ -86,4 +86,4 @@ The website is live on GitHub pages. Access it using [this link](https://fac-six
 
 ---
 
-![done](http://i.imgur.com/fplrfbC.gif)
+![done](https://i.imgur.com/LzbMI22.png)
