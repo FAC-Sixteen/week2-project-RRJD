@@ -24,6 +24,18 @@ var todoFunctions = {
   },
 
   addTodo: function(todos, newTodo) {
+      if (newTodo !== '') {
+        let copyOfArray = todoFunctions.cloneArrayOfObjects(todos);
+        let obj1 = {};
+        let obj2 = {...newTodo};
+        obj1["id"] = todoFunctions.generateId();
+        let object = {...obj1, ...obj2};
+        object["done"] = false;
+
+        return copyOfArray.concat(object);
+      } else {
+        return todos;
+      }
     // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
     // returns a new array, it should contain todos with the newTodo added to the end.
     // add an id to the newTodo. You can use the generateId function to create an id.
