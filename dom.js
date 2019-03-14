@@ -28,7 +28,12 @@
     todoNode.appendChild(deleteButtonNode);
 
     // add markTodo button
-
+    var markTodoButtonNode = document.createElement('button');
+    markTodoButtonNode.addEventListener('click', function(event) {
+      var newState = todoFunctions.markTodo(state, todo.id);
+      update(newState);
+    });
+    todoNode.appendChild(markTodoButtonNode);
     // add classes for css
 
     return todoNode;
