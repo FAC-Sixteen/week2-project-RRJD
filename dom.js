@@ -27,6 +27,7 @@
     deleteButtonNode.addEventListener('click', function (event) {
       var newState = todoFunctions.deleteTodo(state, todo.id);
       update(newState);
+      setActive(newState);
     });
     todoNode.appendChild(deleteButtonNode);
 
