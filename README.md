@@ -1,5 +1,5 @@
 
-# README 
+# README
 ## :honeybee: Overview  
 > Created by: @jokosanyang @rymatech @dalmano @rohanSSS
 
@@ -9,7 +9,7 @@ The website is live on GitHub pages. Access it using [this link](https://fac-six
 
 ---
 
-## :floppy_disk: How to install the project 
+## :floppy_disk: How to install the project
 
 1. clone the project
 2. cd into it
@@ -26,7 +26,7 @@ The website is live on GitHub pages. Access it using [this link](https://fac-six
 
 1. read through the project README carefully
 2. divide into pairs
-    Ryan and Joko - add and create functions, styling 
+    Ryan and Joko - add and create functions, styling
     Rohan and Dylan - delete and mark functions, buttons
 3. Figure out the required functionality of the app using the user stories  
 4. Plan a list of steps to ensure said functionality
@@ -38,14 +38,14 @@ The website is live on GitHub pages. Access it using [this link](https://fac-six
 ---
 
 ## 🏋️‍ What we struggled with  
-* understanding the argument variables 
->     "IS IT AN ARRAY OR AN OBJECT?!" 
+* understanding the argument variables
+>     "IS IT AN ARRAY OR AN OBJECT?!"
 >     "It's an array of objects."
 ![mindblown gif](https://media.giphy.com/media/xThta9RB4hjgoUaaxG/giphy.gif)    
 * understand the tape testing format
->     "Does that go in 'actual' or 'expected'?! 
+>     "Does that go in 'actual' or 'expected'?!
 >     What are they testing for?!"
->     "It turns out actual or expected are just variables. 
+>     "It turns out actual or expected are just variables.
 >     We decide what they're testing for."
 >
 ![mindblown gif](https://media.giphy.com/media/xThta9RB4hjgoUaaxG/giphy.gif)   
@@ -53,13 +53,15 @@ The website is live on GitHub pages. Access it using [this link](https://fac-six
 
 ---
 
-## :bulb: What we learned 
-* Introduction to TDD 
+## :bulb: What we learned
+* Introduction to TDD
 * Better understanding of DOM manipulation
+
+![cat typing](https://i.imgur.com/uXENA3Y.gif)
 
 ---
 
-## :clock6: If we had more time...(and skill) 
+## :clock6: If we had more time...(and skill)
 
 ![sad cat](https://i.imgur.com/mgnVntX.jpg)
 
@@ -70,9 +72,9 @@ The website is live on GitHub pages. Access it using [this link](https://fac-six
 
 ---
 
-## :wrench: Built with 
+## :wrench: Built with
 
-* DevDependencies 
+* DevDependencies
     * Tape
     * tap-spec
     * nodemon
@@ -82,3 +84,6 @@ The website is live on GitHub pages. Access it using [this link](https://fac-six
 * CSS
 * Javascript
 
+---
+
+![done](http://i.imgur.com/fplrfbC.gif)
