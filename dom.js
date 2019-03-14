@@ -27,6 +27,7 @@
 
     // add span holding description
     var spanNode = document.createElement('span');
+    spanNode.textContent = todo.description;
     todoNode.appendChild(spanNode);
 
     // this adds the delete button
@@ -39,7 +40,7 @@
 
     // add markTodo button
     var markTodoButtonNode = document.createElement('button');
-    markTodoButtonNode.addEventListener('click', function(event) {
+    markTodoButtonNode.addEventListener('click', function (event) {
       var newState = todoFunctions.markTodo(state, todo.id);
       update(newState);
     });
@@ -55,11 +56,13 @@
       // https://developer.mozilla.org/en-US/docs/Web/Events/submit
       // what does event.preventDefault do?
       // what is inside event.target?
-
-      var description = '?'; // event.target ....
-
+      event.preventDefault();
+      let textEntered = document.getElementsByTagName("input");
+      var description = textEntered[0].value; // event.target ....
+      console.log(description);
       // hint: todoFunctions.addTodo
-      var newState = []; // ?? change this!
+      var newState = todoFunctions.addTodo(state, description); // ?? change this!
+      console.log(newState);
       update(newState);
     });
   }

@@ -24,11 +24,11 @@ var todoFunctions = {
   },
 
   addTodo: function (todos, newTodo) {
-
+    let description = newTodo;
     let copyOfArray = todoFunctions.cloneArrayOfObjects(todos);
     let obj1 = {};
     let obj2 = {
-      ...newTodo
+      description
     };
     obj1["id"] = todoFunctions.generateId();
     let object = {
