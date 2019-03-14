@@ -27,6 +27,7 @@
     deleteButtonNode.addEventListener('click', function (event) {
       var newState = todoFunctions.deleteTodo(state, todo.id);
       update(newState);
+      setActive(newState);
     });
     todoNode.appendChild(deleteButtonNode);
 
@@ -64,12 +65,13 @@
       event.preventDefault();
       let textEntered = document.getElementsByTagName("input");
       var description = textEntered[0].value; // event.target ....
-      console.log(description);
       // hint: todoFunctions.addTodo
+      if (description.length > 0) {
       var newState = todoFunctions.addTodo(state, description); // ?? change this!
-      console.log(newState);
       update(newState);
       setActive(newState);
+      document.querySelector('input').value = '';
+    }
     });
   }
 
