@@ -86,7 +86,7 @@ input {
   font-size: 1.5rem;
   font-family: 'Quicksand',
     sans-serif;
-    margin-right: auto;
+  margin-right: auto;
 }
 
 li {
@@ -103,4 +103,8 @@ li {
 #input-item {
   width: 49vw;
   margin-bottom: 10px;
+}
+
+.line-through {
+  text-decoration: line-through;
 }
