@@ -96,8 +96,8 @@ li {
 #submit-item {
   background-color: #ED6A5A;
   color: white;
-  width: auto;
-  float: right;
+  min-width: 40%;
+  margin: 0 30% 0 30%;
 }
 
 #input-item {

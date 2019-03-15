@@ -30,7 +30,7 @@ var todoFunctions = {
       description: newTodo,
       done: false
     };
-    
+
     const final = copyOfArray.concat(object);
     return final;
 
