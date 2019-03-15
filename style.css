@@ -46,6 +46,8 @@ button {
   flex-direction: column;
   margin-top: 12%;
   margin-bottom: 12%;
+  word-wrap: break-word;
+
 }
 
 #todo-item,
@@ -61,7 +63,7 @@ form {
 }
 
 #todo-item {
-  font-size: 3rem;
+  font-size: 5.5vw;
   order: -1;
   text-align: center;
   /* font-family: 'Pacifico',
@@ -81,15 +83,26 @@ ul {
 input {
   border-radius: 25px;
   height: 2rem;
-  width: 30%;
   font-size: 1.5rem;
   font-family: 'Quicksand',
     sans-serif;
+  margin-right: auto;
+}
+
+li {
+  word-wrap: break-word;
 }
 
 #submit-item {
   background-color: #ED6A5A;
   color: white;
+  width: auto;
+  float: right;
+}
+
+#input-item {
+  width: 49vw;
+  margin-bottom: 10px;
 }
 
 .line-through {
