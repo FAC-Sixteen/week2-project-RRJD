@@ -24,20 +24,14 @@ var todoFunctions = {
   },
 
   addTodo: function (todos, newTodo) {
-    let description = newTodo;
-    let copyOfArray = todoFunctions.cloneArrayOfObjects(todos);
-    let obj1 = {};
-    let obj2 = {
-      description
+    const copyOfArray = todoFunctions.cloneArrayOfObjects(todos);
+    const object = {
+      id: todoFunctions.generateId(),
+      description: newTodo,
+      done: false
     };
-    obj1["id"] = todoFunctions.generateId();
-    let object = {
-      ...obj1,
-      ...obj2
-    };
-    object["done"] = false;
 
-    let final = copyOfArray.concat(object);
+    const final = copyOfArray.concat(object);
     return final;
 
     // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)

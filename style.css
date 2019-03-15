@@ -104,3 +104,7 @@ li {
   width: 49vw;
   margin-bottom: 10px;
 }
+
+.line-through {
+  text-decoration: line-through;
+}
