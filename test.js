@@ -1,6 +1,8 @@
 var test = require('tape');
 var logic = require('./logic');
 
+// <--------- addTodo tests --------->
+
 const dummyTodos = [{
     id: 0,
     description: 'smash avocados',
@@ -12,14 +14,7 @@ const dummyTodos = [{
     done: false,
   },
 ];
-const dummyNewTodo = {
-  description: 'make smoothie out of things that should really be cooked'
-};
-
-test('Make sure Tape is working', function (t) {
-  t.equal(1, 1, "1 should equal 1");
-  t.end();
-});
+const dummyNewTodo = 'make smoothie out of things that should really be cooked';
 
 test('Test whether addTodo returns an array', function (t) {
   const actual = Array.isArray(logic.addTodo(dummyTodos, dummyNewTodo));
@@ -48,6 +43,7 @@ test("addTodo adds new item to the array", function (t) {
 test("check if addTodo function adds 'id' and 'done' to newTodo", function (t) {
   let a = logic.addTodo(dummyTodos, dummyNewTodo);
   const actual = Object.keys(a[a.length - 1]);
+  console.log(a);
   const expected = ['id', 'description', 'done'];
   t.deepEqual(actual, expected, 'newTodo must have an id, description, done');
   t.end();
