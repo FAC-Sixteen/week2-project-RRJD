@@ -1,4 +1,5 @@
 
+[![Known Vulnerabilities](https://snyk.io/test/github/FAC-Sixteen/week2-project-RRJD/badge.svg)](https://snyk.io/test/github/FAC-Sixteen/week2-project-RRJD)
 # README
 ## :honeybee: Overview  
 > Created by: @jokosanyang @rymatech @dalmano @rohanSSS
