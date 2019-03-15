@@ -91,3 +91,7 @@ input {
   background-color: #ED6A5A;
   color: white;
 }
+
+.line-through {
+  text-decoration: line-through;
+}
