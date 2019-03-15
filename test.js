@@ -1,5 +1,5 @@
-var test = require('tape');
-var logic = require('./logic');
+const test = require('tape');
+const logic = require('./logic');
 
 // <--------- addTodo tests --------->
 
@@ -41,7 +41,7 @@ test("addTodo adds new item to the array", function (t) {
 
 
 test("check if addTodo function adds 'id' and 'done' to newTodo", function (t) {
-  let a = logic.addTodo(dummyTodos, dummyNewTodo);
+  const a = logic.addTodo(dummyTodos, dummyNewTodo);
   const actual = Object.keys(a[a.length - 1]);
   console.log(a);
   const expected = ['id', 'description', 'done'];
@@ -50,28 +50,28 @@ test("check if addTodo function adds 'id' and 'done' to newTodo", function (t) {
 });
 
 test('deleteTodo returns an array', function (t) {
-  let actual = Array.isArray(logic.deleteTodo(['test', 'testing']));
+  const actual = Array.isArray(logic.deleteTodo(['test', 'testing']));
   t.equals(actual, true, 'deleteTodo should return an array');
   t.end();
 });
 
 test('deleteTodo should not edit array todo', function (t) {
-  let actual = ['edit', 'editing'];
-  let expected = ['edit', 'editing'];
+  const actual = ['edit', 'editing'];
+  const expected = ['edit', 'editing'];
   logic.deleteTodo(actual);
   t.deepEqual(actual, expected, 'deleteTodo edit array');
   t.end();
 });
 
 test('deleteTodo removes an item', function (t) {
-  let actual = logic.deleteTodo([{
+  const actual = logic.deleteTodo([{
     'id': 'test'
   }, {
     'id': 'testing'
   }, {
     'id': 'length'
   }], 'testing');
-  let expected = [{
+  const expected = [{
     'id': 'test'
   }, {
     'id': 'testing'
@@ -83,29 +83,29 @@ test('deleteTodo removes an item', function (t) {
 });
 
 test('deleteTodo returns an error message', function (t) {
-  let actual = logic.deleteTodo('string');
-  let expected = 'error'
+  const actual = logic.deleteTodo('string');
+  const expected = 'error'
   t.equals(actual, expected, 'should return error when given string');
   t.end();
 });
 
 test('deleteTodo should be able to return without anything being deleted', function (t) {
-  let actual = logic.deleteTodo(['any', 'anything'], "doesn't match");
-  let expected = ['any', 'anything'];
+  const actual = logic.deleteTodo(['any', 'anything'], "doesn't match");
+  const expected = ['any', 'anything'];
   t.deepEqual(actual, expected, 'should return out anything being changed');
   t.end();
 
 })
 
 test('deleteTodo should delete correct item from array', function (t) {
-  let actual = logic.deleteTodo([{
+  const actual = logic.deleteTodo([{
     'id': 'test'
   }, {
     'id': 'testing'
   }, {
     'id': 'deleting'
   }], 'testing');
-  let expected = [{
+  const expected = [{
     'id': 'test'
   }, {
     'id': 'deleting'
@@ -115,20 +115,20 @@ test('deleteTodo should delete correct item from array', function (t) {
 })
 
 test('deleteTodo should return error', function (t) {
-  let actual = logic.deleteTodo(1);
-  let expected = 'error';
+  const actual = logic.deleteTodo(1);
+  const expected = 'error';
   t.equals(actual, expected, 'when given number return error');
   t.end();
 })
 
 test('deleteTodo accesses object id inside array and deletes correct item', function (t) {
-  let a = [{
+  const a = [{
     'id': 'test'
   }, {
     'id': 'testing'
   }];
-  let actual = logic.deleteTodo(a, 'test');
-  let expected = [{
+  const actual = logic.deleteTodo(a, 'test');
+  const expected = [{
     'id': 'testing'
   }];
   t.deepEqual(actual, expected, 'should delete correct object when given id');
@@ -138,7 +138,7 @@ test('deleteTodo accesses object id inside array and deletes correct item', func
 
 // <-----------------MARKTODO----------------->
 
-let testArray = [{
+const testArray = [{
     'id': 'test',
     'done': false
   },
@@ -154,8 +154,8 @@ let testArray = [{
 
 test('markTodo does not change argument todo', function (t) {
   logic.markTodo(testArray, 'test')
-  let actual = [...testArray];
-  let expected = [{
+  const actual = [...testArray];
+  const expected = [{
     'id': 'test',
     'done': false
   }, {
@@ -170,37 +170,37 @@ test('markTodo does not change argument todo', function (t) {
 });
 
 test('markTodo returns an array', function (t) {
-  let actual = Array.isArray(logic.markTodo(testArray));
+  const actual = Array.isArray(logic.markTodo(testArray));
   t.equals(actual, true, 'markTodo should return an array');
   t.end();
 })
 
 test('markTodo returns an array of objects', function (t) {
-  let a = logic.markTodo(testArray);
-  let actual = typeof a[0] === 'object';
-  let expected = true;
+  const a = logic.markTodo(testArray);
+  const actual = typeof a[0] === 'object';
+  const expected = true;
   t.equals(actual, expected, 'markTodo should return an array of objects');
   t.end();
 })
 
 test('markTodo should edit the array of objects', function (t) {
-  let actual = logic.markTodo(testArray, 'testing');
-  let expected = [...testArray];
+  const actual = logic.markTodo(testArray, 'testing');
+  const expected = [...testArray];
   t.notDeepEqual(actual, expected, 'markTodo should edit the array of objects');
   t.end();
 })
 
 test('markTodo should return an object with same ids', function (t) {
-  let a = logic.markTodo(testArray);
-  let actual = [a[0].id, a[1].id, a[2].id];
-  let expected = ['test', 'testing', 'testoo'];
+  const a = logic.markTodo(testArray);
+  const actual = [a[0].id, a[1].id, a[2].id];
+  const expected = ['test', 'testing', 'testoo'];
   t.deepEqual(actual, expected, 'markTodo should return an object with same ids');
   t.end();
 })
 
 test('markTodo should change the done status of the given id to true', function (t) {
-  let actual = logic.markTodo(testArray, 'testing');
-  let expected = [{
+  const actual = logic.markTodo(testArray, 'testing');
+  const expected = [{
       'id': 'test',
       'done': false
     },
@@ -218,8 +218,8 @@ test('markTodo should change the done status of the given id to true', function 
 })
 
 test('markTodo should change the done status of the given id to false', function (t) {
-  let actual = logic.markTodo(testArray, 'testoo');
-  let expected = [{
+  const actual = logic.markTodo(testArray, 'testoo');
+  const expected = [{
       'id': 'test',
       'done': false
     },
@@ -237,8 +237,8 @@ test('markTodo should change the done status of the given id to false', function
 })
 
 test('markTodo should return error', function (t) {
-  let actual = logic.markTodo('give me an error');
-  let expected = 'error';
+  const actual = logic.markTodo('give me an error');
+  const expected = 'error';
   t.equals(actual, expected, 'when given non array return error');
   t.end();
 })

@@ -6,10 +6,22 @@
   var container = document.getElementById('todo-container');
   var addTodoForm = document.getElementById('add-todo');
 
-  var state = [
-    { id: -3, description: 'first todo', done: false },
-    { id: -2, description: 'second todo', done: false },
-    { id: -1, description: 'third todo', done: false },
+
+  var state = [{
+      id: -3,
+      description: 'first todo',
+      done: false
+    },
+    {
+      id: -2,
+      description: 'second todo',
+      done: false
+    },
+    {
+      id: -1,
+      description: 'third todo',
+      done: false
+    },
   ]; // this is our initial todoList
 
   // This function takes a todo, it returns the DOM node representing that todo
@@ -19,6 +31,8 @@
 
     // add span holding description
     var spanNode = document.createElement('span');
+    const spanid = 'span:' + todo.id;
+    spanNode.setAttribute('id', spanid);
     spanNode.textContent = todo.description;
     todoNode.appendChild(spanNode);
 
@@ -34,8 +48,8 @@
     // add markTodo button
     var markTodoButtonNode = document.createElement('button');
     markTodoButtonNode.classList.add("todoButton");
-    markTodoButtonNode.setAttribute('id', todo.id)
-    markTodoButtonNode.addEventListener('click', function(event) {
+    markTodoButtonNode.setAttribute('id', todo.id);
+    markTodoButtonNode.addEventListener('click', function (event) {
       var newState = todoFunctions.markTodo(state, todo.id);
       update(newState);
       setActive(newState);
@@ -50,8 +64,11 @@
   function setActive(todo) {
     todo.map(function (a) {
       let el = document.getElementById(a.id);
+      let spanel = document.getElementById('span:' + a.id);
       if (a.done === true) {
         el.classList.add('todoButtonActive');
+        spanel.style.textDecoration = "line-through";
+
       }
     })
   }
@@ -67,11 +84,11 @@
       var description = textEntered[0].value; // event.target ....
       // hint: todoFunctions.addTodo
       if (description.length > 0) {
-      var newState = todoFunctions.addTodo(state, description); // ?? change this!
-      update(newState);
-      setActive(newState);
-      document.querySelector('input').value = '';
-    }
+        var newState = todoFunctions.addTodo(state, description); // ?? change this!
+        update(newState);
+        setActive(newState);
+        document.querySelector('input').value = '';
+      }
     });
   }
 
@@ -91,6 +108,7 @@
 
     // you may want to add a class for css
     container.replaceChild(todoListNode, container.firstChild);
+
   };
 
   if (container) renderState(state);
