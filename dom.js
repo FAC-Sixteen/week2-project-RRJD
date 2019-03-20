@@ -25,7 +25,7 @@
   ]; // this is our initial todoList
 
   // This function takes a todo, it returns the DOM node representing that todo
-  var createTodoNode = function (todo) {
+  var createTodoNode = (todo)=>{
     var todoNode = document.createElement('li');
     // you will need to use addEventListener
 
@@ -56,19 +56,16 @@
     });
     todoNode.appendChild(markTodoButtonNode);
     // add classes for css
-
-
     return todoNode;
   };
 
-  function setActive(todo) {
+  var setActive = (todo)=> {
     todo.map(function (a) {
       let el = document.getElementById(a.id);
       let spanel = document.getElementById('span:' + a.id);
       if (a.done === true) {
         el.classList.add('todoButtonActive');
         spanel.style.textDecoration = "line-through";
-
       }
     })
   }
@@ -93,13 +90,13 @@
   }
 
   // you should not need to change this function
-  var update = function (newState) {
-    state = newState;
+  var update = (newState)=>{
+    var state = newState;
     renderState(state);
   };
 
   // you do not need to change this function
-  var renderState = function (state) {
+  var renderState = (state)=>{
     var todoListNode = document.createElement('ul');
 
     state.forEach(function (todo) {
